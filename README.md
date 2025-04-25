@@ -43,7 +43,7 @@ It uses arrays, classes, methods, and simple console input/output for interactio
 
 **Home Screen:**
 
-![image](https://github.com/user-attachments/assets/d9f0d30b-50e2-411a-b8b2-777fbd8805ef)
+![image](https://github.com/user-attachments/assets/1edbff98-9ddf-4568-ac1f-7ed18b9cf678)
 
 
 **Available Books Screen:**
