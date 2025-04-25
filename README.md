@@ -48,67 +48,36 @@ It uses arrays, classes, methods, and simple console input/output for interactio
 
 **Available Books Screen:**
 
-![image](https://github.com/user-attachments/assets/60b04be0-ad74-44bd-a66e-b75a9accbadf)
+![image](https://github.com/user-attachments/assets/f66e7978-08a5-463d-9de3-a290150bd995)
 
 **Checked-Out Books Screen:**
 
-![image](https://github.com/user-attachments/assets/d781c23a-5582-4e44-b99c-bfd533cc454f)
+![image](https://github.com/user-attachments/assets/6c4bcc0e-85f0-424b-8c9e-5aee17e4247a)
 
 **Error Handling Example (Invalid Input):**
 
-![image](https://github.com/user-attachments/assets/ecae73c8-a4c8-4c7b-99fa-68cfe9ad977d)
+![image](https://github.com/user-attachments/assets/96ca8ca5-b277-4cd1-a223-a0c68f31e9a0)
 
-![image](https://github.com/user-attachments/assets/41daa105-b6d3-4e1f-84b0-3745c33d027c)
+![image](https://github.com/user-attachments/assets/ea716b45-f642-44f4-bacb-df1f4f20463b)
 
 
-
-![image](https://github.com/user-attachments/assets/f84b5d21-daab-47a0-b707-5480f5c56778)
+![image](https://github.com/user-attachments/assets/d46a49c7-e1f5-4f4a-95eb-b1413b4bc982)
 
 ---
 
 ## 🔍 Interesting Code
 
 ```java
-if (choice.equalsIgnoreCase("C")) {
+// Prompt for book Id to check in
+System.out.print("Enter book Id to check in: ");
+String bookIdInput = input.nextLine();
+while (bookIdInput.isEmpty() || !bookIdInput.matches("\\d+")) {
+    System.out.print("Invalid input. Please enter a valid number: ");
+    bookIdInput = input.nextLine();
+}
+int bookId = Integer.parseInt(bookIdInput);
 
-                    // Prompt for book Id to check in
-                    System.out.print("Enter book Id to check in: ");
-                    int bookId = input.nextInt();
-                    input.nextLine(); // Clear buffer
-
-                    // Boolean to track if book is found
-                    boolean found = false;
-
-                    // Loop through books to find matching Id and check it in
-                    for (Book book : books) {
-                        if (book.getId() == bookId && book.isCheckedOut()) {
-                            book.checkIn();
-                            System.out.println("Book checked in successfully!");
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    // If no valid book is found
-                    if (!found) {
-                        System.out.println("Invalid book Id or book is not checked out.");
-                    }
-
-                } else if (choice.equalsIgnoreCase("X")) {
-                    // Exit checked out books menu
-                    appRunnig = false;
-                } else {
-                    // Handle invalid input if not c or x
-                    System.out.println("Invalid input. Please enter C or X");
-                }
-                // catch  invalid input type
-            } catch (InputMismatchException e) {
-                System.out.print("Invalid input type! Please enter a number: ");
-                input.nextLine();
-                continue;
-            }
-        }
 ```
 ## 🎯 Why it matters
 
-This conditional structure ensures users can easily check in a book by entering its ID, receive clear feedback if the book isn’t found or isn’t checked out, and gracefully choose whether to continue or exit. It improves user experience by handling invalid choices, guiding users with clear prompts, and preventing abrupt program exits or crashes from bad input — making the library menu smooth, predictable, and beginner-friendly.
+This input validation loop ensures users provide a proper numeric Book ID when checking in a book. It prevents errors from empty or invalid inputs, offers clear, direct feedback, and guides users to enter acceptable values before continuing. By filtering bad input early, the program stays stable and predictable, avoiding crashes or logic errors — making the library system beginner-friendly, reliable, and easier to maintain.
